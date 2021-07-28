@@ -1,0 +1,33 @@
+﻿@page
+@using ContactModule.UI.Pages
+@model ContactModel
+
+@{
+    ViewData["Title"] = "Contact page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Contact Pages</h1>
+
+    <table class="table">
+        <thead class="thead-red">
+            <tr>
+                <th scope="col">Contace Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model.ContactEntities)
+            {
+            <tr>
+                <td> @item.ContactId </td>
+                <td> @item.FirstName </td>
+                <td> @item.LastName </td>
+                <td> @item.PhoneNumber </td>
+            </tr>
+            }
+
+</table>
+</div>

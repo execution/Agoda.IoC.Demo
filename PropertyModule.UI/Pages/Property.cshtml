@@ -1,0 +1,27 @@
+﻿@page
+@using PropertyModule.UI.Pages
+@model PropertyModel
+@{
+    ViewData["Title"] = "Property page";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome To Property Pages</h1>
+
+    <table class="table">
+        <thead class="thead-red">
+            <tr>
+                <th scope="col">Property name</th>
+                <th scope="col">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model.PropertyEntities)
+            {
+                <tr>
+                    <td> @item.PropertyName </td>
+                    <td>    <img width="32" src="~/@item.ImageName"/> </td>
+                </tr>
+            }
+
+    </table>
+</div>

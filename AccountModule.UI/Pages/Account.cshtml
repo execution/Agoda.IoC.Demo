@@ -1,0 +1,30 @@
+﻿@page
+@using AccountModule.UI.Pages
+@model AccountModel
+@{
+    ViewData["Title"] = "Account page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Account Pages</h1>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">AccountId</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model.AccountEntities)
+            {
+            <tr>
+                <td> @item.AccountId </td>
+                <td> @item.FirstName </td>
+                <td>@item.LastName </td>
+            </tr>
+            }
+
+</table>
+</div>
