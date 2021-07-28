@@ -1,12 +1,20 @@
 ﻿@page
 @using AccountModule.UI.Pages
 @model AccountModel
+@inject AccountModule.Core.Services.ICalculatorAdd CalculatorAdd;
+@inject AccountModule.Core.Services.ICalculatorSub CalculatorSub;
+
 @{
     ViewData["Title"] = "Account page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome To Account Pages</h1>
+    <h3>New service Added</h3>
+    <div>
+        <p> 1 + 1  = @CalculatorAdd.Add(1, 1) </p>
+        <p> 1 - 1  = @CalculatorSub.Sub(1, 1) </p>
+    </div>
 
     <table class="table">
         <thead class="thead-dark">
@@ -19,12 +27,13 @@
         <tbody>
             @foreach (var item in @Model.AccountEntities)
             {
-            <tr>
-                <td> @item.AccountId </td>
-                <td> @item.FirstName </td>
-                <td>@item.LastName </td>
-            </tr>
+                <tr>
+                    <td> @item.AccountId </td>
+                    <td> @item.FirstName </td>
+                    <td>@item.LastName </td>
+                </tr>
             }
 
-</table>
+    </table>
+   
 </div>
