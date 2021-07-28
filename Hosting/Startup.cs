@@ -2,6 +2,13 @@
 using AccountModule.Core.Entities;
 using AccountModule.Core.Repositories;
 
+// NOTE: Additioanl using from Contact module
+using ContactModule.Core.Entities;
+using ContactModule.Core.Repositories;
+
+// NOTE: Additioanl using from Property module
+using PropertyModule.Core.Entities;
+using PropertyModule.Core.Repositories;
 
 using Common;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +39,27 @@ namespace Hosting
             // NOTE: Do not know how many class were registered to IoC!!!!
             //services.AddScoped(typeof(IToolSet<>), typeof(ToolSet<>));
             services.AddScoped(typeof(IToolSet<AccountEntity>), typeof(ToolSet<AccountEntity>));
+
+
+
+            /*****************************************************************
+             * Register Account module
+             *****************************************************************/
+            services.AddScoped<IGenericRepo<ContactEntity>, ContactRepository>();
+            // **** REGISTER GENERIC TYPES ****
+            // NOTE: Do not know how many class we registered to IoC!!!!
+            //services.AddScoped(typeof(IToolSet<>), typeof(ToolSet<>));
+            services.AddScoped(typeof(IToolSet<ContactEntity>), typeof(ToolSet<ContactEntity>));
+
+
+            /*****************************************************************
+            * Register Property module
+            *****************************************************************/
+            services.AddScoped<IGenericRepo<PropertyEntity>, PropertyRepository>();
+            // **** REGISTER GENERIC TYPES ****
+            // NOTE: Do not know how many class we registered to IoC!!!!
+            //services.AddScoped(typeof(IToolSet<>), typeof(ToolSet<>));
+            services.AddScoped(typeof(IToolSet<PropertyEntity>), typeof(ToolSet<PropertyEntity>));
 
 
         }
