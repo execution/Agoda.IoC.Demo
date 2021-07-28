@@ -1,11 +1,12 @@
-﻿using Common;
+﻿using Agoda.IoC.Core;
+using Common;
 using PropertyModule.Core.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PropertyModule.Core.Repositories
 {
-    // Note: What is the class lifetime
+    [RegisterPerRequest(For = typeof(IGenericRepo<PropertyEntity>))]
     public class PropertyRepository : IGenericRepo<PropertyEntity>
     {
         private readonly IToolSet<PropertyEntity> _toolSet;

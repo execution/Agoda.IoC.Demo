@@ -1,4 +1,5 @@
 ﻿using AccountModule.Core.Entities;
+using Agoda.IoC.Core;
 using Common;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AccountModule.Core.Repositories
 {
-    // Note: What is the class lifetime
+    [RegisterPerRequest(For = typeof(IGenericRepo<AccountEntity>))]
     public class AccountRepository : IGenericRepo<AccountEntity>
     {
         private readonly IToolSet<AccountEntity> _toolSet;

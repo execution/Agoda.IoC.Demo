@@ -1,3 +1,4 @@
+using Agoda.IoC.NetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -16,6 +17,7 @@ namespace Hosting
         {
             services.AddRazorPages();
             services
+                .AutoWireAssembly(new[] { typeof(Startup).Assembly }, false)
                 .AddAccountModule()
                 .AddContactModule()
                 .AddPropertyModule();    

@@ -1,10 +1,18 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Common;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Agoda.IoC.Core;
+using AccountModule.Core.Entities;
+using ContactModule.Core.Entities;
+using PropertyModule.Core.Entities;
 
-namespace Common
+namespace Hosting.Diagnostics
 {
+    [RegisterPerRequest(For = typeof(IToolSet<>), GenericArgument = typeof(AccountEntity))]
+    [RegisterPerRequest(For = typeof(IToolSet<>), GenericArgument = typeof(ContactEntity))]
+    [RegisterPerRequest(For = typeof(IToolSet<>), GenericArgument = typeof(PropertyEntity))]
     public class ToolSet<T> : IToolSet<T>
     {
         private readonly ILogger<T> _logger;

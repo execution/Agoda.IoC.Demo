@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using Agoda.IoC.Core;
+using Common;
 using ContactModule.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContactModule.Core.Repositories
 {
-    // Note: What is the class lifetime
+    [RegisterPerRequest(For = typeof(IGenericRepo<ContactEntity>))]
     public class ContactRepository : IGenericRepo<ContactEntity>
     {
         private readonly IToolSet<ContactEntity> _toolSet;
